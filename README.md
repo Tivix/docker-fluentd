@@ -1,5 +1,5 @@
 # docker-fluentd
-Fluentd image from [https://github.com/fluent/fluentd-kubernetes-daemonset]
+Official [Fluentd image](https://github.com/fluent/fluentd-kubernetes-daemonset)
 
 with extra plugins:
 
