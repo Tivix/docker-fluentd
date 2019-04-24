@@ -9,7 +9,7 @@ steps:
     type: parallel
     stage: 'build'
     steps:
-      build_backend:
+      build_fluentd:
         type: build
         image_name: tivix/docker-fluentd
         working_directory: ${{main_clone}}
