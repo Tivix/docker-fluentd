@@ -1,0 +1,29 @@
+version: '1.0'
+mode: sequential
+stages:
+- build
+- push
+steps:
+
+  build_images:
+    type: parallel
+    stage: 'build'
+    steps:
+      build_backend:
+        type: build
+        image_name: tivix/docker-fluentd
+        working_directory: ${{main_clone}}
+        tag: ${{CF_BRANCH}}
+
+  push_images:
+    type: parallel
+    stage: 'push'
+    steps:
+      push_proxy_to_registry:
+        type: push
+        title: Pushing proxy to registry
+        candidate: ${{build_proxy}}
+        registry: dockerhub
+        tags:
+          - ${{IMAGE_TAG}}
+          - ${{CF_SHORT_REVISION}}
