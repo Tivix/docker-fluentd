@@ -19,10 +19,10 @@ steps:
     type: parallel
     stage: 'push'
     steps:
-      push_proxy_to_registry:
+      push_fluentd_to_registry:
         type: push
-        title: Pushing proxy to registry
-        candidate: ${{build_proxy}}
+        title: Pushing fluentd to hub
+        candidate: ${{build_fluentd}}
         registry: dockerhub
         tags:
           - ${{IMAGE_TAG}}
