@@ -8,4 +8,4 @@ COPY entrypoint.sh /bin/entrypoint.sh
 
 USER fluent
 
-ENTRYPOINT ["/bin/entryopint.sh"]
+ENTRYPOINT ["/bin/entrypoint.sh"]
