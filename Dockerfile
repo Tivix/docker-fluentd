@@ -5,6 +5,7 @@ LABEL maintaner="michal.kopacki@tivix.com"
 RUN gem install fluent-plugin-detect-exceptions
 
 COPY entrypoint.sh /bin/entrypoint.sh
+RUN chmod +x /bin/entrypoint.sh
 
 USER fluent
 
