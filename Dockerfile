@@ -7,3 +7,5 @@ RUN gem install fluent-plugin-detect-exceptions
 COPY entrypoint.sh /bin/entrypoint.sh
 
 USER fluent
+
+ENTRYPOINT ["/bin/entryopint.sh"]

@@ -15,4 +15,4 @@ adduser -D -g '' -u ${uid} -h /home/fluent fluent
 chown -R fluent /home/fluent
 chown -R fluent /fluentd
 
-exec su-exec root "$@"
+exec su-exec root "fluentd -c /fluentd/etc/${FLUENTD_CONF} -p /fluentd/plugins --gemfile /fluentd/Gemfile ${FLUENTD_OPT}"
