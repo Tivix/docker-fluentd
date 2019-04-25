@@ -1,4 +1,4 @@
-FROM fluent/fluentd-kubernetes-daemonset:elasticsearch
+FROM fluent/fluentd-kubernetes-daemonset:v1.3.3-debian-elasticsearch-1.8
 
 LABEL maintaner="michal.kopacki@tivix.com"
 
