@@ -1,10 +1,17 @@
 version: '1.0'
 mode: sequential
 stages:
+- clone
 - build
 - push
 steps:
-
+  main_clone:
+    stage: clone
+    title: Cloning main repository...
+    type: git-clone
+    repo: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}'
+    revision: '${{CF_REVISION}}'
+    
   build_images:
     type: parallel
     stage: 'build'
