@@ -1,12 +1,18 @@
-FROM fluent/fluentd-kubernetes-daemonset:v1.3.3-debian-elasticsearch-1.8
+FROM fluent/fluentd:v1.6-1
 
 LABEL maintaner="michal.kopacki@tivix.com"
 
-RUN gem install fluent-plugin-detect-exceptions
+USER root
 
-COPY entrypoint.sh /bin/entrypoint.sh
-RUN chmod +x /bin/entrypoint.sh
+RUN apk add --no-cache --update --virtual .build-deps \
+        sudo build-base ruby-dev \
+ # cutomize following instruction as you wish
+ && sudo gem install fluent-plugin-record-reformer \
+ && sudo gem sources --clear-all \
+ && apk del .build-deps \
+ && rm -rf /home/fluent/.gem/ruby/2.5.0/cache/*.gem
+
+COPY fluent.conf /fluentd/etc/
+COPY entrypoint.sh /bin/ && chmod +x entrypoint.sh
 
 USER fluent
-
-ENTRYPOINT ["/bin/entrypoint.sh"]

@@ -1,6 +1,6 @@
-# docker-fluentd (WIP - doesn't work yet as it should)
-Official [Fluentd image](https://github.com/fluent/fluentd-kubernetes-daemonset)
+# docker-fluentd 
+Official [Fluentd image](https://github.com/fluent/fluentd-docker-image)
 
 with extra plugins:
 
-- [fluent-plugin-detect-exceptions](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions)
+- [fluent-plugin-record_reformer](https://github.com/sonots/fluent-plugin-record-reformer/blob/master/README.md)
